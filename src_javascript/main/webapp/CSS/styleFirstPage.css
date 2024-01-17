@@ -1,0 +1,48 @@
+  ul {
+      list-style-type: none;
+      margin:10px;
+      padding: 0;
+    }
+
+    li {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+
+    .container{
+      width: auto;
+  height: 600px;
+  overflow: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+    }
+    
+    .categories {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.categories li {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+    button{
+      padding: 10px;
+      margin-left: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    span[style="color: red"] {
+  color: red;
+}
+
+.valid-drop-target {
+  background-color: lightblue;
+}

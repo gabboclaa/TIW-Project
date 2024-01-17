@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<div th:fragment="list(category)">
+	<ul>
+    <li>
+        <span th:text="${category.order + ' ' + category.name}" th:style="${category.isRed} ? 'color: red' : ''"></span>
+        	<a th:unless="${category.isRed}" th:href="@{/InsertCategory(categoryid=${category.id} , precid=${precid})}"> >> copia qui</a>
+        	
+        	<ul th:unless="${#lists.isEmpty(category.subcategories)}" class="subcategories">
+
+			<li th:each="child : ${category.subcategories}" ><span
+				th:text="${category.order + '.' + child.order + ' ' +    child.name}" 
+				th:style="${child.isRed} ? 'color: red' : ''"></span>
+				<a th:unless="${child.isRed}" th:href="@{/InsertCategory(categoryid=${child.id}, precid=${precid})}"> >> copia qui</a>
+				
+				<ul th:unless="${#lists.isEmpty(child.subcategories)}" class="subcategories2">
+
+			<li th:each="child2 : ${child.subcategories}"><span
+				th:text="${category.order + '.' + child.order + '.' 
+				+ child2.order + ' ' +   child2.name}" th:style="${child2.isRed} ? 'color: red' : ''"></span>
+				<a th:unless="${child2.isRed}" th:href="@{/InsertCategory(categoryid=${child2.id}, precid=${precid})}"> >> copia qui</a>
+				
+				<ul th:unless="${#lists.isEmpty(child2.subcategories)}" class="subcategories3">
+
+			<li th:each="child3 : ${child2.subcategories}"><span
+				th:text="${category.order + '.' + child.order + '.' 
+				+ child2.order + '.' + child3.order + ' ' +    child3.name}"
+				th:style="${child3.isRed} ? 'color: red' : ''"></span>
+				<a th:unless="${child3.isRed}" th:href="@{/InsertCategory(categoryid=${child3.id} , precid=${precid})}"> >> copia qui</a>
+
+			<ul th:unless="${#lists.isEmpty(child3.subcategories)}" class="subcategories4">
+
+			<li th:each="child4 : ${child3.subcategories}"><span
+				th:text="${category.order + '.' + child.order +'.'+ child2.order +'.'+
+				child3.order + '.' + child4.order + ' ' + child4.name}"
+				th:style="${child4.isRed} ? 'color: red' : ''"></span>
+				<a th:unless="${child4.isRed}" th:href="@{/InsertCategory(categoryid=${child4.id}, precid=${precid})}"> >> copia qui</a>
+
+			<ul th:unless="${#lists.isEmpty(child4.subcategories)}" class="subcategories5">
+
+			<li th:each="child5 : ${child4.subcategories}"><span
+				th:text="${category.order + '.' + child.order +'.'+ child2.order +'.'+
+				child3.order + '.' + child4.order + '.' + child5.order + ' ' + child5.name}"
+				th:style="${child5.isRed} ? 'color: red' : ''"></span>
+				<a th:unless="${child5.isRed}" th:href="@{/InsertCategory(categoryid=${child5.id}, precid=${precid})}"> >> copia qui</a>
+
+			<ul th:unless="${#lists.isEmpty(child5.subcategories)}" class="subcategories6">
+
+			<li th:each="child6 : ${child5.subcategories}"><span
+				th:text="${category.order + '.' + child.order +'.'+ child2.order +'.'+
+				child3.order + '.' + child4.order + '.' + child5.order 
+				+ '.' + child6.order + ' ' + child6.name}" th:style="${child6.isRed} ? 'color: red' : ''"></span>
+				<a th:unless="${child6.isRed}" th:href="@{/InsertCategory(categoryid=${child6.id}, precid=${precid})}"> >> copia qui</a>
+
+			<ul th:unless="${#lists.isEmpty(child6.subcategories)}" class="subcategories7">
+
+			<li th:each="child7 : ${child6.subcategories}"><span
+				th:text="${category.order + '.' + child.order +'.'+ child2.order +'.'+
+				child3.order + '.' + child4.order + '.' + child5.order 
+				+ '.' + child6.order + '.' +child7.order + ' ' + child7.name}" th:style="${child7.isRed} ? 'color: red' : ''"></span>
+				<a th:unless="${child7.isRed}" th:href="@{/InsertCategory(categoryid=${child7.id}, precid=${precid})}"> >> copia qui</a>
+			
+			<ul th:unless="${#lists.isEmpty(child7.subcategories)}" class="subcategories8">
+
+			<li th:each="child8 : ${child7.subcategories}"><span
+				th:text="${category.order + '.' + child.order +'.'+ child2.order +'.'+
+				child3.order + '.' + child4.order + '.' + child5.order 
+				+ '.' + child6.order + '.'+ child7.order + '.' + child8.order + ' ' + child8.name}" th:style="${child8.isRed} ? 'color: red' : ''"></span>
+				<a th:unless="${child8.isRed}" th:href="@{/InsertCategory(categoryid=${child8.id}, precid=${precid})}"> >> copia qui</a>
+
+			</li>
+			
+			</ul>
+
+
+			</li>
+			
+			</ul>
+
+
+			</li>
+
+		</ul>
+
+
+			</li>
+
+		</ul>
+
+
+			</li>
+
+		</ul>
+
+
+			</li>
+
+		</ul>
+
+			</li>
+
+		</ul>
+
+			</li>
+
+		</ul>
+        	</li>
+        </ul>
+        	
+        	
+	</div>
+
+</body>
+</html>

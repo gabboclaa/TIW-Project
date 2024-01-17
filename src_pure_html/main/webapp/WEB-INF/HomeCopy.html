@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><head>
+<meta charset="UTF-8">
+<title>Pagina di scelta della copia</title>
+<link rel="stylesheet" href="CSS/styleFirstPage.css">
+</head>
+<body>
+  <h1>HOME</h1>
+ <div class="container">
+    <h2>Tassonomia di classificazione</h2>
+    
+    <ul>
+        
+    <li th:each="category : ${topcategories}" 
+    th:insert="@{WEB-INF/fragmentCopy.html} :: list (category)">
+        
+       </li>
+        	
+        	<li>
+    <a th:href="@{/InsertCategory(categoryid=${0}, precid=${precid})}"> >> copia qui </a>
+    </li>
+    
+    
+      
+        </ul>
+        
+  	
+  </div>
+</body>
+</html>

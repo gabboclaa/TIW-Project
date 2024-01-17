@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><head>
+<meta charset="UTF-8">
+<title>Pagina principale</title>
+<link rel="stylesheet" href="CSS/styleFirstPage.css">
+</head>
+<body>
+  <h1>HOME</h1>
+ <div class="container">
+    <h2>Tassonomia di classificazione</h2>
+    
+    <ul>
+    
+    <li th:each="category : ${topcategories}" 
+    th:insert="@{WEB-INF/fragment.html} :: list (category)">
+        
+        	</li>
+        </ul>
+  	<div th:if="${!success}">
+        <p>Errore: L'inserimento non e' andato a buon fine (order max = 9).</p>
+    </div>
+    
+    <div th:if="${!checkCatchable}">
+        <p>Errore: L'inserimento non e' consentito in questo punto.</p>
+    </div>
+    
+  	       
+  </div>
+  
+  <h3>Inserisci nuova categoria</h3>
+    <form action="CreateCategory" id="newCategoryForm" method="POST">
+        <label for="categoryName">Nome categoria:</label>
+        <input type="text" id="categoryName" name="categoryName" required>
+
+        <label for="parentCategory">Categoria padre:</label>
+        <select id="parentCategory" name="parentCategory">
+            <option value="">Seleziona categoria padre</option>
+            <!-- Opzioni per le categorie esistenti -->
+             <option th:each="category : ${allcategories}" 
+             th:value="${category.id}" th:text="${category.name}"></option>
+        </select>
+
+        <button type="submit">Inserisci</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<div th:fragment="list(category)">
+	<ul>
+    <li>
+        <span th:text="${category.order + ' ' + category.name}"></span>
+        	<a th:href="@{/CopyCategory(categoryid=${category.id})}"> >> copia</a>
+        	
+        	<ul th:unless="${#lists.isEmpty(category.subcategories)}" class="subcategories">
+
+			<li th:each="child : ${category.subcategories}"><span
+				th:text="${category.order + '.' + child.order + ' ' +    child.name}"></span>
+				<a th:href="@{/CopyCategory(categoryid=${child.id})}"> >> copia</a>
+				
+				<ul th:unless="${#lists.isEmpty(child.subcategories)}" class="subcategories2">
+
+			<li th:each="child2 : ${child.subcategories}"><span
+				th:text="${category.order + '.' + child.order + '.' 
+				+ child2.order + ' ' +   child2.name}"></span>
+				<a th:href="@{/CopyCategory(categoryid=${child2.id})}"> >> copia</a>
+				
+				<ul th:unless="${#lists.isEmpty(child2.subcategories)}" class="subcategories3">
+
+			<li th:each="child3 : ${child2.subcategories}"><span
+				th:text="${category.order + '.' + child.order + '.' 
+				+ child2.order + '.' + child3.order + ' ' +    child3.name}"></span>
+				<a th:href="@{/CopyCategory(categoryid=${child3.id})}"> >> copia</a>
+
+			<ul th:unless="${#lists.isEmpty(child3.subcategories)}" class="subcategories4">
+
+			<li th:each="child4 : ${child3.subcategories}"><span
+				th:text="${category.order + '.' + child.order +'.'+ child2.order +'.'+
+				child3.order + '.' + child4.order + ' ' + child4.name}"></span>
+				<a th:href="@{/CopyCategory(categoryid=${child4.id})}"> >> copia</a>
+
+			<ul th:unless="${#lists.isEmpty(child4.subcategories)}" class="subcategories5">
+
+			<li th:each="child5 : ${child4.subcategories}"><span
+				th:text="${category.order + '.' + child.order +'.'+ child2.order +'.'+
+				child3.order + '.' + child4.order + '.' + child5.order + ' ' + child5.name}"></span>
+				<a th:href="@{/CopyCategory(categoryid=${child5.id})}"> >> copia</a>
+
+			<ul th:unless="${#lists.isEmpty(child5.subcategories)}" class="subcategories6">
+
+			<li th:each="child6 : ${child5.subcategories}"><span
+				th:text="${category.order + '.' + child.order +'.'+ child2.order +'.'+
+				child3.order + '.' + child4.order + '.' + child5.order 
+				+ '.' + child6.order + ' ' + child6.name}"></span>
+				<a th:href="@{/CopyCategory(categoryid=${child6.id})}"> >> copia</a>
+				
+			<ul th:unless="${#lists.isEmpty(child6.subcategories)}" class="subcategories6">
+
+			<li th:each="child7 : ${child6.subcategories}"><span
+				th:text="${category.order + '.' + child.order +'.'+ child2.order +'.'+
+				child3.order + '.' + child4.order + '.' + child5.order 
+				+ '.' + child6.order + '.' + child7.order + ' '+ child67.name}"></span>
+				<a th:href="@{/CopyCategory(categoryid=${child7.id})}"> >> copia</a>
+				
+			<ul th:unless="${#lists.isEmpty(child7.subcategories)}" class="subcategories6">
+
+			<li th:each="child8 : ${child7.subcategories}"><span
+				th:text="${category.order + '.' + child.order +'.'+ child2.order +'.'+
+				child3.order + '.' + child4.order + '.' + child5.order 
+				+ '.' + child6.order + '.' + child7.order + '.' + child8.order + ' ' +  child8.name}"></span>
+				<a th:href="@{/CopyCategory(categoryid=${child8.id})}"> >> copia</a>
+
+			</li>
+
+		</ul>
+
+			</li>
+
+		</ul>
+
+			</li>
+
+		</ul>
+
+
+			</li>
+
+		</ul>
+
+
+			</li>
+
+		</ul>
+
+
+			</li>
+
+		</ul>
+
+			</li>
+
+		</ul>
+
+			</li>
+
+		</ul>
+        	</li>
+        </ul>
+        	
+        	
+	</div>
+
+</body>
+</html>
